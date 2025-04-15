@@ -1,0 +1,51 @@
+html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+ /* Navbar */
+  .navbar-nav {
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .custom-hover {
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+  
+  .custom-hover:hover {
+    background-color: white;
+    color: black !important;
+    border: 1px solid white;
+  }
+  
+  
+  /* Header Hero */
+  header {
+    height: 100vh;
+    background: linear-gradient(135deg, #1f1f1f, #2a2a72);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  /* Sections */
+  section {
+    padding: 100px 0;
+  }
+  
+  
+  /* Footer */
+  footer {
+    background-color: #f8f9fa;
+    padding: 20px 0;
+    text-align: center;
+  }
+  
