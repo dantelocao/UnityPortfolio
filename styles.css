@@ -34,87 +34,280 @@ html {
     padding: 100px 0;
   }
 
-
-  /* Container geral */
+/* Container geral */
 #projects {
-    padding: 60px 20px;
-    background-color: #f5f5f5;
-    text-align: center;
-  }
-  
-  #projects h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-  }
-  
-  #projects p {
-    max-width: 600px;
-    margin: 0 auto 40px;
-  }
-  
-  /* Grid de projetos */
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 20px;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-  
-  /* Card do projeto */
-  .project-card {
-    position: relative;
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  }
-  
-  .project-card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.3s ease;
-  }
-  
-  /* Overlay de hover */
-  .project-card .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(50, 50, 50, 0.6);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .project-card .overlay span {
-    color: white;
-    font-size: 1.1rem;
-    font-weight: bold;
-    text-align: center;
-    padding: 0 10px;
-  }
-  
-  /* Efeito ao passar o mouse */
-  .project-card:hover img {
-    transform: scale(1.05);
-  }
-  
-  .project-card:hover .overlay {
-    opacity: 1;
-  }
-  
-  
-  
-  /* Footer */
-  footer {
-    background-color: #f8f9fa;
-    padding: 20px 0;
-    text-align: center;
-  }
-  
+  padding: 60px 20px;
+  background-color: #f5f5f5;
+  text-align: center;
+}
+
+#projects h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+#projects p {
+  max-width: 600px;
+  margin: 0 auto 40px;
+}
+
+/* Grid de projetos */
+.projects-grid {
+  display: flex;
+  flex-direction: column; /* Agora os projetos vão ficar um embaixo do outro */
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Card do projeto */
+.project-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  width: 100%;
+  height: 300px; /* Altura maior */
+}
+
+/* Imagem do projeto */
+.project-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+/* Overlay de hover */
+.project-card .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.607);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-card .overlay span {
+  color: white;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 0 10px;
+}
+
+/* Efeito ao passar o mouse */
+.project-card:hover img {
+  transform: scale(1.05);
+}
+
+.project-card:hover .overlay {
+  opacity: 1;
+}
+
+
+/* Contact Section */
+#contact {
+  background: linear-gradient(135deg, #2a2a72, #1f1f1f); /* Igual ao header */
+  color: white;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+#contact img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+/* Animação na imagem ao passar o mouse */
+#contact img:hover {
+  transform: scale(1.05);
+}
+
+#contact h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+#contact p {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto 20px;
+}
+
+/* Link do email */
+#contact a {
+  color: #f5f5f5;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+#contact a:hover {
+  color: #ffffff;
+}
+
+/* Contact Section */
+#contact {
+  background: linear-gradient(135deg, #2a2a72, #1f1f1f);
+  color: white;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+#contact img {
+  width: 120px; /* também diminui um pouco a imagem para harmonizar */
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+#contact img:hover {
+  transform: scale(1.05);
+}
+
+#contact h2 {
+  font-size: 1.8rem; /* título menor */
+}
+
+#contact p {
+  font-size: 0.95rem; /* texto menor e mais fino */
+  max-width: 500px;
+}
+
+/* Link do email */
+#contact a {
+  color: #f5f5f5;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+  font-size: 0.95rem; /* mesmo tamanho do p */
+}
+
+#contact a:hover {
+  color: #ffffff;
+}
+
+/* Botões de redes sociais */
+#contact .btn {
+  padding: 8px 18px;
+  font-size: 0.9rem; /* botões menores */
+  border-radius: 25px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Cores dos botões */
+#contact .btn-primary {
+  background-color: #2a2a72;
+  border: none;
+}
+
+#contact .btn-primary:hover {
+  background-color: #1f1f1f;
+  transform: translateY(-2px);
+}
+
+#contact .btn-dark {
+  background-color: #1f1f1f;
+  border: none;
+}
+
+#contact .btn-dark:hover {
+  background-color: #000;
+  transform: translateY(-2px);
+}
+
+
+
+/* Section de projetos pequenos */
+/* Section de projetos pequenos */
+#projects-small {
+  padding: 80px 20px;
+  background-color: #e9e9e9; /* Fundo neutro */
+  text-align: center;
+}
+
+#projects-small h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #1f1f1f;
+}
+
+#projects-small p {
+  font-size: 1rem;
+  max-width: 600px;
+  margin: 0 auto 40px;
+  color: #333;
+}
+
+/* Grid dos projetos pequenos */
+.projects-grid-small {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colunas fixas */
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Card de projeto pequeno */
+.project-card-small {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  background-color: #ffffff;
+}
+
+/* Imagem do projeto pequeno */
+.project-card-small img {
+  width: 100%;
+  height: 200px; /* Aumentado */
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+/* Overlay de hover */
+.overlay-small {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(31, 31, 31, 0.6); /* Paleta combinando */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay-small span {
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 0 10px;
+}
+
+/* Efeitos de hover */
+.project-card-small:hover img {
+  transform: scale(1.05);
+}
+
+.project-card-small:hover .overlay-small {
+  opacity: 1;
+}
