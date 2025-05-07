@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Detalhes do Projeto</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 2rem;
+    }
+
+    #project-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #343a40;
+    }
+
+    #project-desc,
+    #project-text {
+      font-size: 1.1rem;
+      color: #495057;
+    }
+
+    .carousel-item img {
+      border-radius: 12px;
+      object-fit: cover;
+      max-height: 400px;
+    }
+
+    .video-container {
+      margin-top: 2rem;
+    }
+
+    .video-container iframe {
+      border-radius: 12px;
+      width: 100%;
+      max-width: 700px;
+      height: 400px;
+    }
+  </style>
+</head>
+<body class="p-4">
+  <div class="container">
+    <div class="project-card mt-5">
+      <h1 id="project-title" class="mb-4"></h1>
+
+      <!-- Carrossel -->
+      <div id="carouselImages" class="carousel slide mb-4" data-bs-ride="carousel">
+        <div class="carousel-inner" id="carousel-inner"></div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselImages" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselImages" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+
+      <p id="project-desc"></p>
+      <p id="project-text" class="mt-3"></p>
+
+      <!-- Seção de Vídeos -->
+      <div id="video-container" class="video-container"></div>
+
+      <a href="index.html" class="btn btn-primary mt-4">← Voltar ao Portfólio</a>
+    </div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+
+    const projetos = {
+      abbadonHospice: {
+        title: "Hospício de Abaddon",
+        images: [
+          "imgs/abbadonHospice/1.png",
+          "imgs/abbadonHospice/2.png",
+          "imgs/abbadonHospice/3.png"
+        ],
+        desc: "Um jogo de terror psicológico desenvolvido em uma game jam. O jogador explora um hospício abandonado repleto de mistérios e entidades paranormais.",
+        videos: [
+          "https://www.youtube.com/embed/exampleVideo1",
+          "https://www.youtube.com/embed/exampleVideo2"
+        ]
+      },
+      jardimbotanico: {
+        title: "Jardim Botânico Interativo",
+        images: [
+          "imgs/jardimbotanico/Screenshot_1.png",
+          "imgs/jardimbotanico/Screenshot_2.png"
+        ],
+        desc: "Experiência 3D navegável baseada no Jardim Botânico da UFSM, com interações educativas e câmeras fixas no interior.",
+        videos: [
+          "https://www.youtube.com/embed/exampleVideo3"
+        ]
+      },
+      fruitninja: {
+        title: "Fruit Ninja",
+        images: [
+          "imgs/fruit ninja/1.png",
+          "imgs/fruit ninja/2.png"
+        ],
+        desc: "Repositório no GitHub:",
+        text: "https://github.com/dantelocao/UnityLearn_UserInterface",
+        videos: [
+          "https://www.youtube.com/embed/exampleVideo4"
+        ]
+      }
+      // Adicione outros projetos aqui
+    };
+
+    const projeto = projetos[id];
+
+    if (projeto) {
+      document.getElementById("project-title").textContent = projeto.title;
+      document.getElementById("project-desc").textContent = projeto.desc;
+
+      // Renderizar imagens no carrossel
+      const carouselInner = document.getElementById("carousel-inner");
+      projeto.images.forEach((imgSrc, index) => {
+        const div = document.createElement("div");
+        div.className = "carousel-item" + (index === 0 ? " active" : "");
+        div.innerHTML = `<img src="${imgSrc}" class="d-block w-100" alt="Imagem do projeto">`;
+        carouselInner.appendChild(div);
+      });
+
+      // Texto opcional (como link GitHub)
+      if (projeto.text) {
+        const projectText = document.getElementById("project-text");
+        if (projeto.text.startsWith("http")) {
+          const link = document.createElement("a");
+          link.href = projeto.text;
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+          link.textContent = projeto.text;
+          link.className = "text-primary text-decoration-underline";
+          projectText.appendChild(link);
+        } else {
+          projectText.textContent = projeto.text;
+        }
+      }
+
+      // Renderizar vídeos
+      const videoContainer = document.getElementById("video-container");
+      projeto.videos.forEach((videoUrl) => {
+        const iframe = document.createElement("iframe");
+        iframe.src = videoUrl;
+        iframe.frameBorder = "0";
+        iframe.allow = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture";
+        iframe.allowFullscreen = true;
+        videoContainer.appendChild(iframe);
+      });
+
+    } else {
+      document.body.innerHTML = "<div class='container'><h2>Projeto não encontrado.</h2></div>";
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
